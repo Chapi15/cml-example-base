@@ -21,11 +21,12 @@ jobs:
           # Create CML report
           cat metrics.txt >> report.md
           echo "![](./plot.png)" >> report.md
-          
-          cml comment create --target=pr report.md
+
+          echo "=== MODEL METRICS ==="
+          cat metrics.txt
+          cml comment create --pr --publish metrics.txt
           
           # cml check create report.md
           # cml comment create report.md
-          # cml comment create --pr --publish report.md
-          # cml comment create --pr --publish metrics.txt
+          # cml comment create --pr --publish report.md    
           # cml comment create --pr --publish plot.png
